@@ -193,6 +193,7 @@
   <script>
     let currentTurn = 0;
     let health = 100;
+    let musicActivated = false; // Variable to track if music is activated
     const backgrounds = [
       '/img/people.jpeg',
       '/img/périmetre-data-breach.jpeg',
@@ -208,6 +209,7 @@
 
     function activateMusic() {
       const musicButton = document.getElementById("musicButton");
+      musicActivated = true; // Mark that the music has been activated
       music.play();
       musicButton.style.display = "none";
       console.log("Music activated and button hidden.");
@@ -237,19 +239,25 @@
       healthIndicator.textContent = `${healthScore}/10`;
 
       if (health === 0 && currentBackgroundIndex === backgrounds.length - 1) {
-        music.pause();
+        if (musicActivated) {
+          music.pause();
+        }
         showModal("Game over! Black Hat Victory!");
         return;
       }
 
       if (health === 0 && currentBackgroundIndex < backgrounds.length - 1) {
-        music.pause();
+        if (musicActivated) {
+          music.pause();
+        }
         document.body.style.backgroundImage = "none";
         document.body.style.backgroundColor = "black";
 
-        explosionSound.currentTime = 0;
-        explosionSound.volume = 1.0;
-        explosionSound.play();
+        if (musicActivated) {
+          explosionSound.currentTime = 0;
+          explosionSound.volume = 1.0;
+          explosionSound.play();
+        }
 
         setTimeout(() => {
           currentBackgroundIndex++;
@@ -262,9 +270,11 @@
           healthIndicator.textContent = '10/10';
           levelIndicator.textContent = levelNames[currentBackgroundIndex];
 
-          music.play();
-          playbackRate += 0.15;
-          music.playbackRate = playbackRate;
+          if (musicActivated) {
+            music.play();
+            playbackRate += 0.15;
+            music.playbackRate = playbackRate;
+          }
         }, 2500);
       }
     }
@@ -289,7 +299,9 @@
           turnCounter.textContent = `Tour : ${currentTurn}/10`;
         }
         if (currentTurn === 10) {
-          music.pause();
+          if (musicActivated) {
+            music.pause();
+          }
           showModal("Game Over! White Hat Victory!");
         }
       }
