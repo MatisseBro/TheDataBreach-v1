@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>The Data Breach</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
   <style>
@@ -82,6 +82,7 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s;
+      touch-action: manipulation; /* Empêche le zoom tactile */
     }
     button:active {
       transform: scale(0.95);
@@ -119,6 +120,7 @@
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s;
+      touch-action: manipulation; /* Empêche le zoom tactile */
     }
     .home-button:hover {
       background-color: #1a1a1a;
