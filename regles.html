@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style>
+    .rounded-border {
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      max-width: 300px;
+    }
+
+    .card-image {
+      width: 140px;
+      height: 260px;
+      object-fit: cover;
+      margin: 15px;
+      border-radius: 15px; /* Coins arrondis */
+    }
+
+    .large-image {
+      width: 100%;
+      height: 550px; /* Alignée avec les deux cartes du bas */
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .images-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .images-wrapper .row {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .images-wrapper .row:first-child {
+      justify-content: center;
+    }
+
+    .images-wrapper .row:last-child {
+      justify-content: center;
+    }
+
+    .center-text {
+      display: flex;
+      align-items: flex-end; /* Descend le texte */
+      height: 100%; /* S'assure que le texte est verticalement descendu */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container my-4">
+    <!-- Logo Section -->
+    <div class="text-center mb-5">
+      <img src="/img/logo-data-breach.png" alt="Logo" class="img-fluid logo">
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="row rounded-border mb-4">
+      <div class="col-12">
+        <h2 class="text-center">Welcome to the World of Cybersecurity</h2>
+        <p class="mt-5">
+          THE DATA BREACH is a game about the mysterious world of cybersecurity and data. You are here to become a hacker, two choices are offered to you: Black Hat and White Hat.<br>
+          As a Black Hat, your objective is to hack the database of the Company. For that, you will have to destroy all the defense of the Company.<br>
+          Opposed to the Black Hat is the White Hat, a defense expert who will do anything he can to stop the advance of the Black Hat until the end of the game.
+        </p>
+        <h4>Basic Rules</h4>
+        <p><strong>How to Win:</strong></p>
+        <ul>
+          <li>The Black Hat wins if he can reach the Data Zone and break it before the last turn.</li>
+          <li>The White Hat wins if he can defend the Data Zone until the last turn.</li>
+        </ul>
+        <h4>Play the Game</h4>
+        <p><strong>How to Win the Game:</strong></p>
+        <p>There are 2 ways to win:</p>
+        <ul>
+          <li>Black Hat: Breach the last Zone before the last turn by depleting the Defense points of the 5 Zones of the White Hat.</li>
+          <li>White Hat: Defend your Zones. If the Database isn’t breached by the last turn, you win!</li>
+        </ul>
+        <h4>Parts of a Turn:</h4>
+        <ul>
+          <li><strong>Preparation phase:</strong> Return played cards to the draw deck, shuffle, and take 5 cards. Gain 2 resources + 1 for each resource saved.</li>
+          <li><strong>Strategy phase:</strong> Use your cards to attack and support yourself.</li>
+          <li><strong>Result phase:</strong> Report damage inflicted and restore the Defense Point Count. Click “End the Turn”.</li>
+        </ul>
+        <h4>5 Zones</h4>
+        <p>
+          Employees can be the weakest link in your cybersecurity posture or your best line of defense. The perimeter is the border between one network and another.
+          The company needs to communicate safely using a LAN (Local Area Network). The server room, where the precious database resides, is the heart of the company.
+        </p>
+        <h4>Advanced Rules</h4>
+        <p>
+          Quick Game: If you’re new to the game, it’s a great choice. Start with 5 cards, receive 2 resources per round + 1 for each resource saved. You have 10 turns to win.
+        </p>
+      </div>
+    </div>
+
+    <!-- Black Hat Section -->
+    <div class="row rounded-border">
+      <div class="col-md-4">
+        <img src="/img/Maquette - Black cards verso.png" alt="Large Image" class="img-fluid large-image">
+      </div>
+      <div class="col-md-8">
+        <div class="images-wrapper">
+          <div class="row">
+            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
+          </div>
+          <div class="row">
+            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- White Hat Section -->
+    <div class="row rounded-border">
+      <div class="col-md-4">
+        <img src="/img/Maquette - White cards verso.png" alt="Large Image" class="img-fluid large-image">
+      </div>
+      <div class="col-md-8">
+        <div class="images-wrapper">
+          <div class="row">
+            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+          </div>
+          <div class="row">
+            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Section with Descended Text -->
+    <div class="row rounded-border">
+        <div class="col-md-4 d-flex align-items-center">
+          <div class="text-center">
+            <h4>Supports Cards</h4>
+            <p>
+                Support cards are used to give yourself a bonus as indicated by the card. 
+                You can be clever, you can use them wisely and you will be able to go ahead.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="images-wrapper">
+            <div class="row">
+              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            </div>
+            <div class="row">
+              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            </div>
+          </div>
+        </div>
+      </div>      
+  </div>
+</body>
+
+</html>

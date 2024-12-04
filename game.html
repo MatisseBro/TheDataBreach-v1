@@ -100,10 +100,14 @@
     .btn-minus:hover {
       background-color: #e53935;
     }
-    .home-button {
+    .home-buttons {
       position: absolute;
       top: 20px;
       left: 20px;
+      display: flex;
+      gap: 10px; /* Space between the buttons */
+    }
+    .home-button {
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -117,7 +121,7 @@
       transition: background-color 0.3s;
     }
     .home-button:hover {
-      background-color: #000000;
+      background-color: #1a1a1a;
     }
     .home-button i {
       margin-left: 8px;
@@ -151,9 +155,14 @@
   </style>
 </head>
 <body>
-  <a href="index.html" class="home-button">
-    Home <i class="bi bi-arrow-90deg-left"></i>
-  </a>
+  <div class="home-buttons">
+    <a href="index.html" class="home-button">
+      Home <i class="bi bi-arrow-90deg-left"></i>
+    </a>
+    <button id="musicButton" class="home-button" onclick="activateMusic()">
+      Play Music
+    </button>
+  </div>
 
   <div id="levelIndicator" class="level-indicator">People</div>
 
@@ -197,15 +206,11 @@
     const explosionSound = document.getElementById("explosionSound");
     let playbackRate = 1;
 
-    // Joue la musique au chargement de la page
-    window.onload = function () {
-      document.body.addEventListener("click", playMusicOnce, { once: true });
-      console.log("Click anywhere to start music.");
-    };
-
-    function playMusicOnce() {
+    function activateMusic() {
+      const musicButton = document.getElementById("musicButton");
       music.play();
-      console.log("Background music started.");
+      musicButton.style.display = "none";
+      console.log("Music activated and button hidden.");
     }
 
     function showModal(message) {
