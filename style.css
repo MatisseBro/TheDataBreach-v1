@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    text-align: center;
+    width: 300px;
+  }
+  .health-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 20px 0;
+    position: relative;
+  }
+  .bar {
+    height: 100%;
+    width: 50%; /* Barre commence à 50% */
+    background-color: #76c7c0;
+    transition: width 0.3s ease;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+  .btn-plus {
+    background-color: #4caf50;
+    color: white;
+  }
+  .btn-plus:hover {
+    background-color: #45a049;
+  }
+  .btn-minus {
+    background-color: #f44336;
+    color: white;
+  }
+  .btn-minus:hover {
+    background-color: #e53935;
+  }
