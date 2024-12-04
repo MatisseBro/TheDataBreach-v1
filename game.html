@@ -33,15 +33,14 @@
     }
 
     .level-indicator {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  position: relative; /* Permet de positionner avec top */
-  top: -20px; /* Déplace vers le haut */
-}
-
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      position: relative;
+      top: -20px;
+    }
 
     .container {
       text-align: center;
@@ -198,6 +197,17 @@
     const explosionSound = document.getElementById("explosionSound");
     let playbackRate = 1;
 
+    // Joue la musique au chargement de la page
+    window.onload = function () {
+      document.body.addEventListener("click", playMusicOnce, { once: true });
+      console.log("Click anywhere to start music.");
+    };
+
+    function playMusicOnce() {
+      music.play();
+      console.log("Background music started.");
+    }
+
     function showModal(message) {
       const modal = document.getElementById('modal');
       const modalText = document.getElementById('modalText');
@@ -209,11 +219,6 @@
       const modal = document.getElementById('modal');
       modal.style.display = 'none';
     }
-
-    window.onload = function () {
-      music.play();
-      console.log("Background music started.");
-    };
 
     function updateHealthBar() {
       const healthBar = document.getElementById('healthBar1');
