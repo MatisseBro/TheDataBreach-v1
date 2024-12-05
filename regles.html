@@ -21,11 +21,17 @@
     }
 
     .card-image {
-      width: 120px;
-      height: 220px;
+      width: 125px; /* Augmenté de 15px */
+      height: 237px; /* Augmenté de 27px pour conserver le ratio (~1:1.83) */
       object-fit: cover;
       margin: 15px;
       border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card-image:hover {
+      transform: scale(1.1); /* Effet zoom au survol */
     }
 
     .large-image {
@@ -41,142 +47,186 @@
       justify-content: center;
     }
 
-    .images-wrapper .row {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-    }
-
-    .images-wrapper .row:first-child {
-      justify-content: center;
-    }
-
-    .images-wrapper .row:last-child {
-      justify-content: center;
-    }
-
     h4 {
-      color: white; /* Texte blanc */
-      background-color: black; /* Fond noir */
-      padding: 10px; /* Ajout de padding */
-      border-radius: 5px; /* Coins arrondis */
+      color: white;
+      background-color: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <div class="container my-4">
-    <!-- Logo Section -->
-    <div class="text-center mb-5">
-      <img src="/img/logo-data-breach.png" alt="Logo" class="img-fluid logo">
-    </div>
-
-    <!-- Introduction Section -->
-    <div class="row rounded-border mb-4">
-      <div class="col-12">
-        <h2 class="text-center">Welcome to the World of Cybersecurity</h2>
-        <p class="mt-5">
-          THE DATA BREACH is a game about the mysterious world of cybersecurity and data. You are here to become a hacker, two choices are offered to you: Black Hat and White Hat.<br>
-          As a Black Hat, your objective is to hack the database of the Company. For that, you will have to destroy all the defense of the Company.<br>
-          Opposed to the Black Hat is the White Hat, a defense expert who will do anything he can to stop the advance of the Black Hat until the end of the game.
-        </p>
-        <h4>Basic Rules</h4>
-        <p><strong>How to Win:</strong></p>
-        <ul>
-          <li>The Black Hat wins if he can reach the Data Zone and break it before the last turn.</li>
-          <li>The White Hat wins if he can defend the Data Zone until the last turn.</li>
-        </ul>
-        <h4>Play the Game</h4>
-        <p><strong>How to Win the Game:</strong></p>
-        <p>There are 2 ways to win:</p>
-        <ul>
-          <li>Black Hat: Breach the last Zone before the last turn by depleting the Defense points of the 5 Zones of the White Hat.</li>
-          <li>White Hat: Defend your Zones. If the Database isn’t breached by the last turn, you win!</li>
-        </ul>
-        <h4>Parts of a Turn:</h4>
-        <ul>
-          <li><strong>Preparation phase:</strong> Return played cards to the draw deck, shuffle, and take 5 cards. Gain 2 resources + 1 for each resource saved.</li>
-          <li><strong>Strategy phase:</strong> Use your cards to attack and support yourself.</li>
-          <li><strong>Result phase:</strong> Report damage inflicted and restore the Defense Point Count. Click “End the Turn”.</li>
-        </ul>
-        <h4>5 Zones</h4>
-        <p>
-          Employees can be the weakest link in your cybersecurity posture or your best line of defense. The perimeter is the border between one network and another.
-          The company needs to communicate safely using a LAN (Local Area Network). The server room, where the precious database resides, is the heart of the company.
-        </p>
-        <h4>Advanced Rules</h4>
-        <p>
-          Quick Game: If you’re new to the game, it’s a great choice. Start with 5 cards, receive 2 resources per round + 1 for each resource saved. You have 10 turns to win.
-        </p>
-      </div>
-    </div>
-
-    <!-- Black Hat Section -->
-    <div class="row rounded-border">
-      <div class="col-md-4">
-        <img src="/img/Maquette - Black cards verso.png" alt="Large Image" class="img-fluid large-image">
-      </div>
-      <div class="col-md-8">
-        <div class="images-wrapper">
-          <div class="row">
-            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
-          </div>
-          <div class="row">
-            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - Black cards verso.png" alt="Card Image" class="img-fluid card-image">
-          </div>
+    <div class="container my-4">
+        <!-- Logo Section -->
+        <div class="text-center mb-5">
+          <img src="/img/logo-data-breach.png" alt="Logo" class="img-fluid logo">
         </div>
-      </div>
-    </div>
-
-    <!-- White Hat Section -->
-    <div class="row rounded-border">
-      <div class="col-md-4">
-        <img src="/img/Maquette - White cards verso.png" alt="Large Image" class="img-fluid large-image">
-      </div>
-      <div class="col-md-8">
-        <div class="images-wrapper">
-          <div class="row">
-            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-          </div>
-          <div class="row">
-            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-            <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- New Section with Descended Text -->
-    <div class="row rounded-border">
-        <div class="col-md-4 d-flex align-items-center">
-          <div class="text-center">
-            <h4>Supports Cards</h4>
+    
+        <!-- Introduction Section -->
+        <div class="row rounded-border mb-4">
+          <div class="col-12">
+            <h2 class="text-center">Welcome to the World of Cybersecurity</h2>
+            <p class="mt-5">
+              THE DATA BREACH is a game about the mysterious world of cybersecurity and data. You are here to become a hacker, two choices are offered to you: Black Hat and White Hat.<br>
+              As a Black Hat, your objective is to hack the database of the Company. For that, you will have to destroy all the defense of the Company.<br>
+              Opposed to the Black Hat is the White Hat, a defense expert who will do anything he can to stop the advance of the Black Hat until the end of the game.
+            </p>
+            <h4>Basic Rules</h4>
+            <p><strong>How to Win:</strong></p>
+            <ul>
+              <li>The Black Hat wins if he can reach the Data Zone and break it before the last turn.</li>
+              <li>The White Hat wins if he can defend the Data Zone until the last turn.</li>
+            </ul>
+            <h4>Play the Game</h4>
+            <p><strong>How to Win the Game:</strong></p>
+            <p>There are 2 ways to win:</p>
+            <ul>
+              <li>Black Hat: Breach the last Zone before the last turn by depleting the Defense points of the 5 Zones of the White Hat.</li>
+              <li>White Hat: Defend your Zones. If the Database isn’t breached by the last turn, you win!</li>
+            </ul>
+            <h4>Parts of a Turn:</h4>
+            <ul>
+              <li><strong>Preparation phase:</strong> Return played cards to the draw deck, shuffle, and take 5 cards. Gain 2 resources + 1 for each resource saved.</li>
+              <li><strong>Strategy phase:</strong> Use your cards to attack and support yourself.</li>
+              <li><strong>Result phase:</strong> Report damage inflicted and restore the Defense Point Count. Click “End the Turn”.</li>
+            </ul>
+            <h4>5 Zones</h4>
             <p>
-                Support cards are used to give yourself a bonus as indicated by the card. 
-                You can be clever, you can use them wisely and you will be able to go ahead.
+              Employees can be the weakest link in your cybersecurity posture or your best line of defense. The perimeter is the border between one network and another.
+              The company needs to communicate safely using a LAN (Local Area Network). The server room, where the precious database resides, is the heart of the company.
+            </p>
+            <h4>Advanced Rules</h4>
+            <p>
+              Quick Game: If you’re new to the game, it’s a great choice. Start with 5 cards, receive 2 resources per round + 1 for each resource saved. You have 10 turns to win.
             </p>
           </div>
         </div>
+    
+
+
+
+    <!-- Black Hat Section -->
+    <div class="row rounded-border">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <img src="/img/Maquette - Black cards verso.png" alt="Large Image" class="img-fluid large-image" onclick="openLightbox(this)">
+        </div>
         <div class="col-md-8">
           <div class="images-wrapper">
-            <div class="row">
-              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <div class="row justify-content-center">
+              <img src="/img/Maquette - Black cards - DDos Attack.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - Black cards - Phishing campaign.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - Black cards - Ransomware Deployment.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
             </div>
-            <div class="row">
-              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
-              <img src="/img/Maquette - White cards verso.png" alt="Card Image" class="img-fluid card-image">
+            <div class="row justify-content-center">
+              <img src="/img/Maquette - Black cards - SQL Injection.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - Black cards - Zero-day Exploit.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
             </div>
           </div>
         </div>
-      </div>      
+      </div>
+      
+      <!-- White Hat Section -->
+      <div class="row rounded-border">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <img src="/img/Maquette - White cards verso.png" alt="Large Image" class="img-fluid large-image" onclick="openLightbox(this)">
+        </div>
+        <div class="col-md-8">
+          <div class="images-wrapper">
+            <div class="row justify-content-center">
+              <img src="/img/Maquette - White cards - Advanced Encryption 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - White cards - Patch urgent.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - White cards - Multi factor 2FA.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            </div>
+            <div class="row justify-content-center">
+              <img src="/img/Maquette - White cards - Reinforced Firewall.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+              <img src="/img/Maquette - White cards - Server Recovery.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    <!-- Support Cards Section -->
+    <div class="row rounded-border">
+      <div class="col-md-4">
+        <h4>Support Cards</h4>
+        <p>Support cards are used to give yourself a bonus as indicated by the card. Use them wisely to gain an edge!</p>
+      </div>
+      <div class="col-md-8">
+        <div class="images-wrapper">
+          <div class="row">
+            <img src="/img/Maquette - Black cards - Recon 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - Black cards - Key logger 2.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - Black cards -  Dark Web 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - Black cards - Backdoor Creation 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - Black cards - Social Engineering 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+          </div>
+          <div class="row">
+            <img src="/img/Maquette - White cards - Alarm Token 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - White cards - Cyber Expert.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - White cards - Sandboxing 1.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - White cards - Regular save.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+            <img src="/img/Maquette - White cards - Log Analysis.png" alt="Card Image" class="img-fluid card-image" onclick="openLightbox(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Large Image">
   </div>
+  
+  <script>
+    // Open lightbox
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+  
+    // Close lightbox
+    function closeLightbox(event) {
+      const lightbox = document.getElementById('lightbox');
+      // Vérifie si l'utilisateur a cliqué à l'extérieur de l'image
+      if (event.target === lightbox || event.target.classList.contains('close')) {
+        lightbox.style.display = 'none';
+      }
+    }
+  </script>
+  
 </body>
 
 </html>
